@@ -29,14 +29,14 @@
             </div>
             <h2>Horários Disponíveis:</h2>
             <ul class="horarios" id="horariosDisponiveis">
-                <li>08:00 AM <button type="button" onclick="confirmarAgendamento('08:00 AM', this)">Selecionar</button></li>
-                <li>09:00 AM <button type="button" onclick="confirmarAgendamento('09:00 AM', this)">Selecionar</button></li>
-                <li>10:00 AM <button type="button" onclick="confirmarAgendamento('10:00 AM', this)">Selecionar</button></li>
-                <li>11:00 AM <button type="button" onclick="confirmarAgendamento('11:00 AM', this)">Selecionar</button></li>
-                <li>01:30 PM <button type="button" onclick="confirmarAgendamento('01:30 PM', this)">Selecionar</button></li>
-                <li>02:30 PM <button type="button" onclick="confirmarAgendamento('02:30 PM', this)">Selecionar</button></li>
-                <li>03:30 PM <button type="button" onclick="confirmarAgendamento('03:30 PM', this)">Selecionar</button></li>
-                <li>04:30 PM <button type="button" onclick="confirmarAgendamento('04:30 PM', this)">Selecionar</button></li>
+                <li>08:00  <button type="button" onclick="confirmarAgendamento('08:00', this)">Selecionar</button></li>
+                <li>09:00  <button type="button" onclick="confirmarAgendamento('09:00', this)">Selecionar</button></li>
+                <li>10:00  <button type="button" onclick="confirmarAgendamento('10:00', this)">Selecionar</button></li>
+                <li>11:00  <button type="button" onclick="confirmarAgendamento('11:00', this)">Selecionar</button></li>
+                <li>13:30  <button type="button" onclick="confirmarAgendamento('13:30', this)">Selecionar</button></li>
+                <li>14:30  <button type="button" onclick="confirmarAgendamento('14:30', this)">Selecionar</button></li>
+                <li>15:30  <button type="button" onclick="confirmarAgendamento('15:30', this)">Selecionar</button></li>
+                <li>16:30  <button type="button" onclick="confirmarAgendamento('16:30', this)">Selecionar</button></li>
             </ul>
         </form>
         <div class="confirmar">
@@ -78,6 +78,28 @@
     </div>
 
     <script>
+        
+            document.addEventListener("DOMContentLoaded", async function (event) {
+                let response = await fetch('https://www.codekst.com.br/agendamento', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then((res) => {
+                    return res.json();
+                });
+
+                console.log(response);
+                
+                response.forEach((res)=>{
+                    console.log(res.hora);
+                    console.log(res.procedimento);
+                });
+
+                console.log("DOM completamente carregado e analisado");
+            });
+
+
         let horarioSelecionado = '';
 
         function confirmarAgendamento(horario, button) {
@@ -120,12 +142,10 @@
                 });
 
                 if (response) {
-                    //const resultado = await response.json();
-                    //document.getElementById('modal-text').innerText = `Consulta agendada com sucesso!\nNome: ${resultado.paciente || nomePaciente}\nHorário: ${resultado.hora || horarioSelecionado}\nData: ${resultado.data || data}\nProcedimento: ${resultado.procedimento || procedimento}`;
-                    //document.getElementById('modal').style.display = 'flex';
-                    const errorDetails = response.json();
-                    console.error("Erro do servidor:", errorDetails);
-                    alert("Erro ao agendar a consulta: " + errorDetails);
+                    const resultado = await response.json();
+                    document.getElementById('modal-text').innerText = `Consulta agendada com sucesso!\nNome: ${resultado.paciente || nomePaciente}\nHorário: ${resultado.hora || horarioSelecionado}\nData: ${resultado.data || data}\nProcedimento: ${resultado.procedimento || procedimento}`;
+                    document.getElementById('modal').style.display = 'flex';
+                   
                 } else {
                     const errorDetails = response.json();
                     console.error("Erro do servidor:", errorDetails);
@@ -147,7 +167,7 @@
         alert("Você já selecionou um horário.");
         return;
     }
-    horarioSelecionado = horario; // Mantém o horário com AM/PM
+    horarioSelecionado = horario; // 
     button.disabled = true; // Desabilita o botão do horário selecionado
 
     // Desabilitar todos os outros botões
