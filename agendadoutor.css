@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.schedule, .appointments {
+    margin: 20px 0;
+}
+
+#availableTimes {
+    list-style-type: none;
+    padding: 0;
+}
+
+#availableTimes li {
+    padding: 10px;
+    background-color: #e7f3ff;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left; /* Mantenha à esquerda ou centralize conforme sua preferência */
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f1f1f1;
+    font-weight: bold; /* Destaca os títulos das colunas */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e2f1ff; /* Alterado para uma cor mais clara */
+}
+
+#bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border-top: 1px solid #ffffff;
+    padding: 10px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-button svg {
+    margin-bottom: 5px;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px; /* Menos padding em telas menores */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Reduz o tamanho da fonte do título */
+    }
+
+    h2 {
+        font-size: 1.2em; /* Ajusta o tamanho da fonte dos subtítulos */
+    }
+
+    #availableTimes li {
+        padding: 8px; /* Ajusta o padding da lista */
+        font-size: 0.9em; /* Reduz o tamanho da fonte da lista */
+    }
+
+    table {
+        font-size: 0.9em; /* Ajusta o tamanho da fonte da tabela */
+    }
+
+    th, td {
+        padding: 10px; /* Reduz o padding das células da tabela */
+    }
+
+}
