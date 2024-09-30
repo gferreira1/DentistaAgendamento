@@ -29,14 +29,7 @@
             </div>
             <h2>Horários Disponíveis:</h2>
             <ul class="horarios" id="horariosDisponiveis">
-                <li>08:00  <button type="button" onclick="confirmarAgendamento('08:00', this)">Selecionar</button></li>
-                <li>09:00  <button type="button" onclick="confirmarAgendamento('09:00', this)">Selecionar</button></li>
-                <li>10:00  <button type="button" onclick="confirmarAgendamento('10:00', this)">Selecionar</button></li>
-                <li>11:00  <button type="button" onclick="confirmarAgendamento('11:00', this)">Selecionar</button></li>
-                <li>13:30  <button type="button" onclick="confirmarAgendamento('13:30', this)">Selecionar</button></li>
-                <li>14:30  <button type="button" onclick="confirmarAgendamento('14:30', this)">Selecionar</button></li>
-                <li>15:30  <button type="button" onclick="confirmarAgendamento('15:30', this)">Selecionar</button></li>
-                <li>16:30  <button type="button" onclick="confirmarAgendamento('16:30', this)">Selecionar</button></li>
+               
             </ul>
         </form>
         <div class="confirmar">
@@ -102,15 +95,7 @@
 
         let horarioSelecionado = '';
 
-        function confirmarAgendamento(horario, button) {
-            if (horarioSelecionado) {
-                alert("Você já selecionou um horário.");
-                return;
-            }
-            horarioSelecionado = horario; // Mantém o horário com AM/PM
-            button.disabled = true; // Desabilita o botão
-            alert(`Horário ${horario} selecionado.`);
-        }
+
 
         async function enviarAgendamento() {
             const data = document.getElementById('data').value;
@@ -167,19 +152,55 @@
         alert("Você já selecionou um horário.");
         return;
     }
-    horarioSelecionado = horario; // 
-    button.disabled = true; // Desabilita o botão do horário selecionado
+    horarioSelecionado = horario;
+    button.disabled = true; 
 
     // Desabilitar todos os outros botões
     const buttons = document.querySelectorAll('#horariosDisponiveis button');
     buttons.forEach(btn => {
         if (btn !== button) {
-            btn.disabled = true; // Desabilita todos os outros botões
+            btn.disabled = true; 
         }
     });
 
     alert(`Horário ${horario} selecionado.`);
 }
+
+
+document.addEventListener("DOMContentLoaded", async function (event) {
+    let response = await fetch('https://www.codekst.com.br/agendamento', { // Altere para o seu IP
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json());
+
+    const horariosDisponiveis = document.getElementById('horariosDisponiveis');
+    horariosDisponiveis.innerHTML = ''; // Limpa a lista existente
+
+    response.forEach(res => {
+        const li = document.createElement('li');
+        li.innerHTML = `${res.hora} <button type="button" onclick="confirmarAgendamento('${res.hora}', this)">Selecionar</button>`;
+        horariosDisponiveis.appendChild(li);
+    });
+
+    console.log("DOM completamente carregado e analisado");
+});
+
+response.forEach(res => {
+    const li = document.createElement('li');
+    const isOcupado = res.ocupado; // Supondo que sua resposta tem a propriedade 'ocupado'
+
+    li.innerHTML = `${res.hora} <button type="button" onclick="confirmarAgendamento('${res.hora}', this)" ${isOcupado ? 'disabled' : ''}>Selecionar</button>`;
+    
+    if (isOcupado) {
+        li.classList.add('riscado'); // Adiciona a classe riscada se estiver ocupado
+    }
+
+    horariosDisponiveis.appendChild(li);
+});
+
+
     </script>
 </body>
 </html>

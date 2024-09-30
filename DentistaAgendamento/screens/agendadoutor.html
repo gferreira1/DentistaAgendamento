@@ -3,12 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="agendadoutor.css">
+    <link rel="stylesheet" href="../css/agendadoutor.css">
     <title>Agenda do Dentista</title>
 </head>
 <body>
+    <header id="header"></header>
+        <div id="header">
+            <img src="../img/Logo2_color_preto_512px.png" alt="Logo" class="logo"> <!-- Certifique-se de ajustar o caminho do logo -->
+            <h1 class="title">Agenda do Dentista</h1>
+        </div>
+        
+    </header>
+
     <div class="container">
-        <h1>Agenda do Dentista</h1>
 
         <div class="schedule">
             <h2>Horários Disponíveis</h2>
@@ -49,12 +56,11 @@
             </svg>
             <span>Home</span>
         </button>
-        <button class="nav-button" aria-label="Search">
+        <button class="nav-button" aria-label="Agenda " onclick="window.location.href='lembrete.html'">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H5V8h14v13zm-7-4h2v2h-2v-2zm-4 0h2v2H8v-2zm0-4h2v2H8v-2zm4 0h2v2h-2v-2z"></path>
             </svg>
-            <span>Search</span>
+            <span>Agenda</span>
         </button>
         <button class="nav-button" aria-label="Profile" onclick="window.location.href='agendadoutor.html'"> <!-- Redireciona para a tela de agenda -->
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -64,30 +70,6 @@
             <span>Profile</span>
         </button>
     </div>
-    
-
-    <script>
-        // Exemplo de consultas agendadas
-        const appointments = [
-            { patient: 'Eduarda Schmitz', date: '2024-09-25', time: '09:00 AM', procedure: 'Limpeza' },
-            { patient: 'Pedro Henrique', date: '2024-09-26', time: '10:00 AM', procedure: 'Obturação' }
-        ];
-
-        function displayAppointments() {
-            const appointmentsList = document.getElementById('appointmentsList');
-            appointments.forEach(appointment => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${appointment.patient}</td>
-                    <td>${appointment.date}</td>
-                    <td>${appointment.time}</td>
-                    <td>${appointment.procedure}</td>
-                `;
-                appointmentsList.appendChild(row);
-            });
-        }
-
-        displayAppointments();
-    </script>
+    <script src="../js/agendamentodoutor.js"></script>
 </body>
 </html>

@@ -5,6 +5,39 @@ body {
     padding: 20px;
 }
 
+#header {
+    background-color: #f8f9fa; /* Cor de fundo do cabeçalho */
+    padding: 20px;
+    display: flex; /* Alinha os itens em linha */
+    align-items: center; /* Centraliza verticalmente */
+    border-bottom: 1px solid #dee2e6; /* Borda inferior */
+    position: fixed; /* Fixa o cabeçalho no topo */
+    top: 0; /* Alinha ao topo da página */
+    left: 0; /* Alinha ao lado esquerdo */
+    width: 90%; /* Largura total */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+
+body {
+    padding-top: 80px; /* Adiciona um espaçamento para evitar que o conteúdo fique atrás do cabeçalho */
+}
+
+.logo {
+    width: 50px; /* Ajuste o tamanho do logotipo */
+    height: auto;
+    margin-right: 10px; /* Espaço entre o logotipo e o título */
+    margin-left: 20px; /* Espaço à esquerda do logotipo */
+}
+
+.title {
+    flex-grow: 1; /* Faz o título ocupar o espaço restante */
+    text-align: center; /* Centraliza o texto */
+    font-size: 24px;
+    color: #333; /* Cor do texto */
+    margin: 0; /* Remove margens padrão */
+}
+
+
 .container {
     background: #ffffff;
     border-radius: 8px;

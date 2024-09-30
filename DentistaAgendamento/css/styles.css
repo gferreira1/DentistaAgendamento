@@ -93,43 +93,7 @@ select {
     background-color: #0056b3;
 }
 
-@media (max-width: 768px) {
-    #navegacao-inferior {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #ffffff;
-        border-top: 1px solid #ffffff;
-        padding: 10px 0;
-        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-    }
 
-    .nav-button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        text-align: center;
-    }
-    
-    .nav-button svg {
-        display: block;
-        margin: 0 auto 5px;
-        fill: #007bff;
-    }
-    
-    .nav-button span {
-        font-size: 12px;
-        color: #333;
-    }
-
-    .container {
-        height: auto; /* Alterado para auto para melhor responsividade */
-    }
-}
 
 .modal {
     display: none; /* Esconde o modal inicialmente */
@@ -161,3 +125,100 @@ select {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+
+button:disabled {
+    background-color: lightgray; /* Cor de fundo cinza */
+    color: darkgray; /* Cor do texto cinza escuro */
+    cursor: not-allowed; /* Muda o cursor para indicar que não pode ser clicado */
+}
+
+.riscado {
+    color: red; /* Ou qualquer outra propriedade de estilo desejada */
+    text-decoration: line-through; /* Para riscar o texto */
+}
+
+
+#bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #333;
+    text-align: center;
+}
+
+.nav-button svg {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.nav-button span {
+    font-size: 12px;
+}
+
+.nav-button:hover {
+    color: #007bff;
+}
+
+.nav-button:focus {
+    outline: none;
+}
+
+.nav-button:focus-visible {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+#header {
+    background-color: #f8f9fa; /* Cor de fundo do cabeçalho */
+    padding: 20px;
+    display: flex; /* Alinha os itens em linha */
+    align-items: center; /* Centraliza verticalmente */
+    border-bottom: 1px solid #dee2e6; /* Borda inferior */
+    position: fixed; /* Fixa o cabeçalho no topo */
+    top: 0; /* Alinha ao topo da página */
+    left: 0; /* Alinha ao lado esquerdo */
+    width: 90%; /* Largura total */
+    z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+
+body {
+    padding-top: 80px; /* Adiciona um espaçamento para evitar que o conteúdo fique atrás do cabeçalho */
+}
+
+.logo {
+    width: 50px; /* Ajuste o tamanho do logotipo */
+    height: auto;
+    margin-right: 10px; /* Espaço entre o logotipo e o título */
+    margin-left: 20px; /* Espaço à esquerda do logotipo */
+}
+
+.title {
+    flex-grow: 1; /* Faz o título ocupar o espaço restante */
+    text-align: center; /* Centraliza o texto */
+    font-size: 24px;
+    color: #333; /* Cor do texto */
+    margin: 0; /* Remove margens padrão */
+}
+
+
+
