@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/perfil.css">
+    <title>Perfil do Usuário</title>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="../img/dentista.jpg" alt="Foto de Perfil" class="profile-img">
+            <h1>Dr. Henrique Martins</h1>
+            <p class="email">henrique.martins@email.com</p>
+            <button class="btn-edit-profile">Editar Perfil</button>
+        </div>
+
+        <div class="profile-details">
+            <h2>Informações Pessoais</h2>
+            <ul class="info-list">
+                <li><strong>Nome:</strong> Henrique Martins</li>
+                <li><strong>E-mail:</strong> henrique.martins@email.com</li>
+                <li><strong>Telefone:</strong> (11) 98765-4321</li>
+                <li><strong>Endereço:</strong> Rua do Mar, 123,Balneário Camboriú</li>
+            </ul>
+
+            <h2 onclick="window.location.href='lembrete.html'">Agendamentos Recentes</h2>
+
+
+            <h2>Configurações da Conta</h2>
+            <button class="btn btn-secondary">Alterar Senha</button>
+            <button class="btn btn-danger" onclick="window.location.href='agendamento.html'">Remover Conta</button>
+            <button class="btn btn-danger" onclick="window.location.href='../Logon/index.html'">Sair</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -197,7 +197,7 @@ button:disabled {
     position: fixed; /* Fixa o cabeçalho no topo */
     top: 0; /* Alinha ao topo da página */
     left: 0; /* Alinha ao lado esquerdo */
-    width: 90%; /* Largura total */
+    width: 100%; /* Largura total */
     z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
 }
 
@@ -218,6 +218,10 @@ body {
     font-size: 24px;
     color: #333; /* Cor do texto */
     margin: 0; /* Remove margens padrão */
+}
+
+h2 {
+    color: #00bd91bd;
 }
 
 

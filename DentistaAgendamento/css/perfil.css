@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    width: 50%;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 15px;
+}
+
+.profile-header h1 {
+    margin: 10px 0;
+}
+
+.profile-header .email {
+    color: #666;
+}
+
+.btn-edit-profile {
+    background: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-details h2 {
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 5px;
+}
+
+.info-list, .appointments-list {
+    list-style: none;
+    padding: 0;
+}
+
+.info-list li, .appointments-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.btn-secondary {
+    background: #f1c40f;
+    color: #fff;
+}
+
+.btn-danger {
+    background: #e74c3c;
+    color: #fff;
+}
