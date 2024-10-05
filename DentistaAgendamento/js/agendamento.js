@@ -100,6 +100,18 @@ function confirmarAgendamento(horario, button) {
 let response = null;
 
 document.addEventListener("DOMContentLoaded", async function (event) {
+    
+    var data = new Date(); // Constroi uma data nova se baseando na data atual,
+
+    dataAtual = data.toISOString().split('T')[0]; // Passa para o formato yyyy-mm-dd BY:CHAT
+    dataInput = document.getElementById('data'); // Coloca do input a data.
+    dataInput.value = dataAtual;
+    verificarAgenda(dataInput); // Faz a busca no endpoint com a data gerada.
+
+    let usuario = sessionStorage.getItem('usuario');
+    if(!usuario){
+        window.location.href = "../Logon/index.html";
+    }
     response = await fetch('https://www.codekst.com.br/agendamento', { // Altere para o seu IP
         method: 'GET',
         headers: {

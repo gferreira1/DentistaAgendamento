@@ -49,6 +49,7 @@ function logarUsuario(){
         body: JSON.stringify(formData)
     }).then(response => response.json().then(data => {
         if(response.status == 200){
+            sessionStorage.setItem("usuario", JSON.stringify(data));
             window.location.href = "../screens/agendamento.html";
         }else{
             console.log(data.erro);
